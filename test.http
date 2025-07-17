@@ -1,0 +1,60 @@
+### Variaveis globais
+@baseUrl = http://localhost:8080
+@apiKey = {{createAccount.response.body.api_key}}
+
+### Criar conta
+# @name createAccount
+POST {{baseUrl}}/accounts
+Content-Type: application/json
+
+{
+  "name": "Vinicius Aguiar",
+  "email": "vinicius.aguiar@example.com"
+}
+
+### Obter dados da conta
+GET {{baseUrl}}/accounts
+X-API-Key: {{apiKey}}
+
+### Criar fatura
+# @name createInvoice
+POST {{baseUrl}}/invoice
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "amount": 100,
+  "description": "Fatura de teste",
+  "payment_type": "credit_card",
+  "card_number": "1234567890123456",
+  "expiry_month": 12,
+  "expiry_year": 2025,
+  "cvv": "123",
+  "cardholder_name": "Vinicius Aguiar"
+}
+
+### Obter uma fatura específica
+@invoiceId = {{createInvoice.response.body.id}}
+GET {{baseUrl}}/invoice/{{invoiceId}}
+X-API-Key: {{apiKey}}
+
+### Obter todas as faturas
+GET {{baseUrl}}/invoice
+X-API-Key: {{apiKey}}
+
+### Criar fatura acima de 10k
+# @name createInvoice
+POST {{baseUrl}}/invoice
+Content-Type: application/json
+X-API-Key: {{apiKey}}
+
+{
+  "amount": 15000,
+  "description": "Fatura de teste",
+  "payment_type": "credit_card",
+  "card_number": "1234567890123456",
+  "expiry_month": 12,
+  "expiry_year": 2025,
+  "cvv": "123",
+  "cardholder_name": "Vinicius Aguiar"
+}

@@ -24,15 +24,21 @@ var (
 	// ErrInternalServerError is returned when an unexpected error occurs on the server
 	ErrInternalServerError = errors.New("internal server error")
 
-	// ErrInvalidAmount is returned when the amount provided is negative, zero, or exceeds allowed limits
-	ErrInvalidAmount = errors.New("invalid amount")
-
 	// ErrInvalidCurrency is returned when the currency code is not supported or invalid
 	ErrInvalidCurrency = errors.New("invalid currency")
+
+	// ErrInvalidDate is returned when the date format is invalid or the date is in the past when not allowed
+	ErrInvalidDate = errors.New("invalid date")
+
+	// ErrInvalidAmount is returned when the amount provided is negative, zero, or exceeds allowed limits
+	ErrInvalidAmount = errors.New("invalid amount")
 
 	// ErrInvalidStatus is returned when the status value is not one of the allowed enum values
 	ErrInvalidStatus = errors.New("invalid status")
 
-	// ErrInvalidDate is returned when the date format is invalid or the date is in the past when not allowed
-	ErrInvalidDate = errors.New("invalid date")
+	// ErrInvalidDescription is returned when the description is empty
+	ErrInvalidDescription = errors.New("invalid description")
+
+	// ErrInvalidPaymentType is returned when the payment type is not one of the allowed values
+	ErrInvalidPaymentType = errors.New("invalid payment type")
 )
